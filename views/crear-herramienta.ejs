@@ -1,0 +1,59 @@
+<!-- formulario.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Formulario de Creación</title>
+    </head>
+    <body>
+        <a href="/"><- Volver</a>
+        <h1>Formulario de Creación</h1>
+
+        <form
+            action="/crear"
+            method="POST"
+        >
+            <label for="nombre">Nombre:</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+            /><br /><br />
+
+            <label for="cantidad">Cantidad:</label>
+            <input
+                type="number"
+                id="cantidad"
+                name="cantidad"
+                required
+            /><br /><br />
+
+            <label for="proveedor">Proveedor:</label>
+            <input
+                type="text"
+                id="proveedor"
+                name="proveedor"
+                required
+            /><br /><br />
+
+            <label for="sector">Sector:</label>
+            <select
+                id="sector"
+                name="sector"
+                required
+            >
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option></select
+            ><br /><br />
+
+            <input
+                type="submit"
+                value="Crear Producto"
+            />
+        </form>
+    </body>
+</html>

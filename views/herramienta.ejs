@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Detalle del Producto</title>
+    </head>
+    <body>
+        <a href="/herramientas"><- Volver</a>
+        <h1>Detalles del Producto</h1>
+
+        <% if (producto) { %>
+        <p>Nombre: <%= producto.nombre %></p>
+        <p>Cantidad: <%= producto.cantidad %></p>
+        <p>Proveedor: <%= producto.proveedor %></p>
+        <p>Sector: <%= producto.sector %></p>
+        <!-- Agrega más detalles del producto si es necesario -->
+        <% } else { %>
+        <p>Producto no encontrado</p>
+        <% } %>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!-- productos.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Lista de Productos</title>
+    </head>
+    <body>
+        <a href="/"><- Volver</a>
+        <h1>Lista de Productos</h1>
+
+        <ul>
+            <% productos.forEach(function(producto) { %>
+            <li>
+                <a href="/herramienta/<%= producto.id_producto %>"
+                    >Ver Herramienta »</a
+                ><br />
+                <strong>ID:</strong> <%= producto.id_producto %><br />
+                <strong>Nombre:</strong> <%= producto.nombre %><br />
+                <strong>Cantidad:</strong> <%= producto.cantidad %><br />
+                <strong>Proveedor:</strong> <%= producto.proveedor %><br />
+                <strong>Sector:</strong> <%= producto.sector %><br />
+                <hr />
+            </li>
+            <% }); %>
+        </ul>
+    </body>
+</html>
