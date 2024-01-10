@@ -7,8 +7,9 @@ class Productos extends Model {
     public id_producto!: number;
     public nombre!: string;
     public cantidad!: number;
-    public proveedor!: string;
+    public estado!: string;
     public sector!: string;
+    public marca!: string;
     public readonly createdAt!: Date; // Campo createdAt
     public readonly updatedAt!: Date; // Campo updatedAt
     // Define las relaciones u otros métodos si es necesario
@@ -29,13 +30,17 @@ Productos.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        proveedor: {
+        estado: {
             type: DataTypes.STRING,
             allowNull: false,
         },
         sector: {
             type: DataTypes.ENUM("A", "B", "C", "D"), // Define el tipo ENUM para el campo sector
             allowNull: false,
+        },
+        marca: {
+            type: DataTypes.STRING,
+            allowNull: true,
         },
         createdAt: {
             type: DataTypes.DATE,

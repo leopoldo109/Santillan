@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Anotar adelanto</title>
+    </head>
+    <body>
+        <a href="/empleados"><- Volver</a>
+        <h1>Crear Nuevo Adelanto</h1>
+
+        <form
+            action="/crear-adelanto"
+            method="POST"
+        >
+            <!-- No hay campo para el ID del personal -->
+
+            <label for="fecha">Fecha:</label>
+            <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                required
+            /><br /><br />
+
+            <label for="monto_adelanto">Monto de Adelanto:</label>
+            <input
+                type="number"
+                id="monto_adelanto"
+                name="monto_adelanto"
+                required
+            /><br /><br />
+
+            <input
+                type="hidden"
+                id="id_personal"
+                name="id_personal"
+                value="<%= id_personal %>"
+            />
+
+            <input
+                type="submit"
+                value="Crear Adelanto"
+            />
+        </form>
+    </body>
+</html>

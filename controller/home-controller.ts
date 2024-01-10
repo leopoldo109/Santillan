@@ -5,7 +5,9 @@ module.exports = {
     crear: function (_req: any, res: any) {
         res.render("crear-herramienta");
     },
-    sala: function (_req: any, res: any) {
-        res.render("sala");
+    anotarAdelanto: function (req: any, res: any) {
+        const id = req.params.id;
+        console.log(id);
+        res.render("anotar-adelanto", { id_personal: id });
     },
 };

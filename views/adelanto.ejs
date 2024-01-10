@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de Adelantos</title>
+        <!-- Agrega aquí tus enlaces a archivos CSS u otros recursos -->
+    </head>
+    <body>
+        <!-- <script>
+            function formatDate(dateString) {
+                const date = new Date(dateString);
+                const options = {
+                    day: "numeric",
+                    month: "numeric",
+                    year: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                    second: "numeric",
+                };
+                return new Intl.DateTimeFormat("es-ES", options).format(date);
+            }
+        </script> -->
+        <a href="/empleados"><- Volver</a>
+        <h1>Lista de Adelantos</h1>
+
+        <% if (adelanto && adelanto.length > 0) { %>
+        <ul>
+            <% adelanto.forEach(function(adelanto) { %>
+            <li>
+                <strong>ID Adelanto:</strong> <%= adelanto.id_adelanto %><br />
+                <strong>ID Personal:</strong> <%= adelanto.id_personal %><br />
+                <strong>Monto:</strong> <%= adelanto.monto_adelanto %><br />
+                <strong>Fecha de Creación:</strong> <%= adelanto.fecha %><br />
+                <br />
+                <!-- Agrega más propiedades si es necesario -->
+                <hr />
+            </li>
+            <% }); %>
+        </ul>
+        <% } else { %>
+        <p>No hay adelantos registrados.</p>
+        <% } %>
+    </body>
+</html>

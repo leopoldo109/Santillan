@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de Personal</title>
+        <!-- Agrega aquí tus enlaces a archivos CSS u otros recursos -->
+    </head>
+    <body>
+        <a href="/"><- Volver</a>
+        <h1>Lista de Personal</h1>
+
+        <% if (personal && personal.length > 0) { %>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Presentismo</th>
+                    <th>Adelanto</th>
+                    <!-- Agrega aquí más columnas según los datos que tengas -->
+                </tr>
+            </thead>
+            <tbody>
+                <% personal.forEach(function(individual) { %>
+                <tr>
+                    <td><%= individual.nombre %></td>
+                    <td>
+                        <a href="/presentismo/<%= individual.id_personal %>"
+                            >Tabla de presentismo</a
+                        >
+                        --
+                        <a
+                            href="/crear-presentismo/<%= individual.id_personal %>"
+                            >Anotar presente</a
+                        >
+                    </td>
+                    <td>
+                        <a href="/adelanto/<%= individual.id_personal %>"
+                            >Tabla de Adelantos</a
+                        >
+                        --
+                        <a href="/crea-adelanto/<%= individual.id_personal %>"
+                            >Anotar Adelantos</a
+                        >
+                    </td>
+
+                    <!-- Agrega aquí más celdas según los datos que tengas -->
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <p>No hay datos de personal disponibles.</p>
+        <% } %>
+    </body>
+</html>

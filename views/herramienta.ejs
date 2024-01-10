@@ -3,16 +3,110 @@
     <head>
         <meta charset="UTF-8" />
         <title>Detalle del Producto</title>
+        <link
+            rel="stylesheet"
+            href="style.css"
+        />
     </head>
     <body>
         <a href="/herramientas"><- Volver</a>
-        <h1>Detalles del Producto</h1>
+        <h1>Detalles de Herramienta</h1>
 
         <% if (producto) { %>
-        <p>Nombre: <%= producto.nombre %></p>
-        <p>Cantidad: <%= producto.cantidad %></p>
-        <p>Proveedor: <%= producto.proveedor %></p>
-        <p>Sector: <%= producto.sector %></p>
+        <a href="/delete/<%= producto.id_producto %>"> borrar </a>
+        <form
+            method="post"
+            action="/editar/<%= producto.id_producto %>"
+        >
+            <br /><br />
+            <label for="nombre">Nombre: </label>
+            <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                value="<%=producto.nombre%>"
+            />
+            <br /><br />
+            <label for="cantidad">Cantidad: </label>
+            <input
+                type="number"
+                name="cantidad"
+                id="cantidad"
+                value="<%= producto.cantidad%>"
+            />
+            <br /><br />
+            <label for="estado">Estado: </label>
+            <input
+                type="text"
+                name="estado"
+                id="estado"
+                value="<%= producto.estado %>"
+            />
+            <br /><br />
+            <label for="marcar">Marca: </label>
+            <input
+                type="text"
+                name="marca"
+                id="marca"
+                value="<%= producto.marca %>"
+            />
+            <br /><br />
+            <label for="sector">Sector</label>
+            <select
+                id="sector"
+                name="sector"
+                ="<%= producto.sector%>"
+            >
+                <% if (producto.sector == "A") { %>
+                <option
+                    value="A"
+                    selected
+                >
+                    A
+                </option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <% } %> <% if (producto.sector == "B") { %>
+                <option value="A">A</option>
+                <option
+                    value="B"
+                    selected
+                >
+                    B
+                </option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <% } %> <% if (producto.sector == "C") { %>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option
+                    value="C"
+                    selected
+                >
+                    C
+                </option>
+                <option value="D">D</option>
+                <% } %> <% if (producto.sector == "D") { %>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option
+                    value="D"
+                    selected
+                >
+                    D
+                </option>
+                <% } %>
+            </select>
+            <br /><br />
+            <button
+                type="submit"
+                data-id="<%= producto.id_producto%>"
+            >
+                Guardar cambios
+            </button>
+        </form>
         <!-- Agrega más detalles del producto si es necesario -->
         <% } else { %>
         <p>Producto no encontrado</p>

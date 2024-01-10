@@ -4,7 +4,6 @@ import db from "../db/Connection";
 class Personal extends Model {
     public id_personal!: number;
     public nombre!: string;
-    public cargo!: string;
     public readonly createdAt!: Date; // Campo createdAt
     public readonly updatedAt!: Date; // Campo updatedAt
 }
@@ -18,10 +17,6 @@ Personal.init(
         },
         nombre: {
             type: DataTypes.STRING,
-            allowNull: false,
-        },
-        cargo: {
-            type: DataTypes.INTEGER,
             allowNull: false,
         },
         createdAt: {
@@ -41,6 +36,7 @@ Personal.init(
         timestamps: true, // Habilita el uso de timestamps (createdAt y updatedAt)
         createdAt: "createdAt", // Define el nombre del campo createdAt
         updatedAt: "updatedAt", // Define el nombre del campo updatedAt
+        tableName: "personal",
     }
 );
 

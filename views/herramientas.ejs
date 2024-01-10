@@ -4,12 +4,43 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <title>Lista de Productos</title>
+        <title>Lista de Herramientas</title>
     </head>
     <body>
         <a href="/"><- Volver</a>
-        <h1>Lista de Productos</h1>
+        <h1>Lista de Herramientas</h1>
+        <form
+            action="/filtrar"
+            method="post"
+        >
+            <h2>Filtro</h2>
 
+            <label for="estado">Estado:</label>
+            <input
+                type="text"
+                id="estado"
+                name="estado"
+            /><br /><br />
+
+            <label for="sector">Sector:</label>
+            <select
+                id="sector"
+                name="sector"
+                required
+            >
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="">Todo</option></select
+            ><br /><br />
+
+            <input
+                type="submit"
+                value="Filtrar"
+            />
+        </form>
+        <% if (productos && productos.length > 0) { %>
         <ul>
             <% productos.forEach(function(producto) { %>
             <li>
@@ -19,11 +50,15 @@
                 <strong>ID:</strong> <%= producto.id_producto %><br />
                 <strong>Nombre:</strong> <%= producto.nombre %><br />
                 <strong>Cantidad:</strong> <%= producto.cantidad %><br />
-                <strong>Proveedor:</strong> <%= producto.proveedor %><br />
+                <strong>Estado:</strong> <%= producto.estado %><br />
                 <strong>Sector:</strong> <%= producto.sector %><br />
+                <strong>Marca:</strong> <%= producto.marca %><br />
                 <hr />
             </li>
             <% }); %>
         </ul>
+        <% } else { %>
+        <p>Producto no encontrado</p>
+        <% } %>
     </body>
 </html>
